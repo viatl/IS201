@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dinner Joke Generator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff3e0;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #e76f51;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #f4a261;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #e76f51;
+    }
+    #joke {
+      margin-top: 30px;
+      background: #fefae0;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Dinner Joke Generator</h1>
+  <p>What did you make for dinner tonight?</p>
+  <input type="text" id="dinnerInput" placeholder="e.g., lasagna, sushi, tacos">
+  <button onclick="generateJoke()">Make Me Laugh</button>
+
+  <div id="joke"></div>
+
+  <script>
+    function generateJoke() {
+      const dinner = document.getElementById('dinnerInput').value.trim();
+      const jokeBox = document.getElementById('joke');
+
+      if (!dinner) {
+        jokeBox.innerHTML = "<strong>Please tell me what you had for dinner first!</strong>";
+        return;
+      }
+
+      const jokes = [
+        `You had ${dinner}? Bold move. I once had that and my fork quit on me.`,
+        `${dinner}? That's not dinner, that's a conversation starter at therapy.`,
+        `After eating ${dinner}, even the fridge needed a break.`,
+        `${dinner}? Fancy. I had... regrets.`,
+        `Your ${dinner} called. It wants to be remembered as a legend.`,
+        `I had ${dinner} once. I still get flashbacks.`,
+        `${dinner}? The only meal that comes with a warning label.`,
+        `Ah, ${dinner}. The reason your microwave has trust issues.`,
+        `You had ${dinner}? That's brave. My stomach would've filed a complaint.`,
+        `${dinner}? If meals had mood swings, that would be the poster child.`,
+        `With ${dinner} like that, who needs enemies?`,
+        `Just had ${dinner}? You're officially one step closer to being a MasterChef… or a food crime suspect.`,
+        `That ${dinner} must've been seasoned with chaos and a sprinkle of confusion.`,
+        `I dream of ${dinner} — and sometimes wake up screaming.`,
+        `Legend has it, someone once ate ${dinner} and lived to tell the tale.`,
+        `My compliments to the chef… for surviving the ${dinner} experience.`,
+        `${dinner}? Sounds like your taste buds had a wild night.`,
+        `Is ${dinner} a dish or a dare? Be honest.`,
+        `If dinner was a movie, your ${dinner} would be a thrilling plot twist.`,
+        `${dinner}… because plain toast was too predictable.`,
+        `Are you sure it was ${dinner} and not a social experiment?`,
+        `I respect your choice of ${dinner}. It takes courage to be different. And alive.`,
+        `The best part of ${dinner}? The story you now have.`,
+        `The only thing hotter than ${dinner} is the debate about pineapple on pizza.`,
+        `Don’t worry — if ${dinner} didn’t kill you, it probably made you stronger. Probably.`
+      ];
+
+      const joke = jokes[Math.floor(Math.random() * jokes.length)];
+      jokeBox.innerHTML = `<strong>Joke:</strong><p>${joke}</p>`;
+    }
+  </script>
+
+</body>
+</html>
